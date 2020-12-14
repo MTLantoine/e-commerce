@@ -1,15 +1,16 @@
-package project.ecommerce.client;
+package project.ecommerce.stock;
 
 import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 @Data
-public class Client {
+public class Stock {
 
     @Id
     private int id;
-    private String firstname;
-    private String lastname;
+    private String name;
+
 }
