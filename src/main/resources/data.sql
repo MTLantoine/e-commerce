@@ -7,9 +7,10 @@ insert into CATALOGUE (id, name) values (1, 'LECLERCQ');
 insert into STOCK (id, name, quantity, catalogue_id) values (1, 'Pomme', 130, 1);
 insert into STOCK (id, name, quantity, catalogue_id) values (2, 'Jambon', 200, 1);
 insert into STOCK (id, name, quantity, catalogue_id) values (3, 'Paquet de riz', 100, 1);
-insert into STOCK (id, name, quantity, catalogue_id) values (4, 'Téléphone', 90, 1);
-insert into STOCK (id, name, quantity, catalogue_id) values (5, 'Machine à laver', 18, 1);
-insert into STOCK (id, name, quantity, catalogue_id) values (6, 'EMPTY', 0, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (4, 'Mozarella', 0, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (5, 'Téléphone', 90, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (6, 'Machine à laver', 18, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (7, 'EMPTY', 0, 1);
 
 -- Clients
 

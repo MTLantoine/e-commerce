@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.ecommerce.stock.Stock;
 
-import java.util.Optional;
-import java.util.Set;
+import java.util.stream.Stream;
 
 @RestController
 @RequestMapping(path="/catalogue")
@@ -17,7 +16,7 @@ public class CatalogueController {
     private CatalogueRepository catalogueRepository;
 
     @GetMapping("not-empty")
-    public Set<Stock> getNotEmptyStock() {
-        return catalogueRepository.findById(1).get().getStock();
+    public Stream<Stock> getNotEmptyStock() {
+        return catalogueRepository.findById(1).get().getStock().stream().filter(stock -> stock.getQuantity() > 0);
     }
 }
