@@ -12,5 +12,9 @@ public class Stock {
     @Id
     private int id;
     private String name;
+    private int quantity;
 
+    public int getQuantity() {
+        return this.quantity;
+    }
 }

@@ -1,7 +1,7 @@
 package project.ecommerce.catalogue;
 
 import lombok.Data;
-import project.ecommerce.product.Product;
+import project.ecommerce.stock.Stock;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,7 +19,7 @@ public class Catalogue {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "product_id")
-    private Set<Product> product = new HashSet<Product>();
+    @JoinColumn(name = "catalogue_id")
+    private Set<Stock> stock = new HashSet<Stock>();
 
 }

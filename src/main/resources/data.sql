@@ -1,3 +1,16 @@
+-- Catalogue
+
+insert into CATALOGUE (id, name) values (1, 'LECLERCQ');
+
+-- Stocks
+
+insert into STOCK (id, name, quantity, catalogue_id) values (1, 'Pomme', 130, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (2, 'Jambon', 200, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (3, 'Paquet de riz', 100, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (4, 'Téléphone', 90, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (5, 'Machine à laver', 18, 1);
+insert into STOCK (id, name, quantity, catalogue_id) values (6, 'EMPTY', 0, 1);
+
 -- Clients
 
 insert into CLIENT (id, firstname, lastname) values (1, 'Antoine', 'Mortelier');
