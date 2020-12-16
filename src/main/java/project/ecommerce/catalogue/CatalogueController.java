@@ -15,8 +15,8 @@ public class CatalogueController {
     @Autowired
     private CatalogueRepository catalogueRepository;
 
-    // @GetMapping
-    // public Stream<Stock> getNotEmptyStock() {
-    //     return catalogueRepository.findById(1).get().getStock().stream().filter(stock -> stock.getQuantity() > 0);
-    // }
+    @GetMapping
+    public Stream<Stock> getNotEmptyStock() {
+        return catalogueRepository.findById(1).get().getStock().stream().filter(stock -> stock.getQuantity() > 0);
+    }
 }
