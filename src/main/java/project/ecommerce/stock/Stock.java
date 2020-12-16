@@ -11,7 +11,5 @@ public class Stock {
 
     @Id
     private int id;
-    private String name;
-    private int price;
     private int quantity;
 }
