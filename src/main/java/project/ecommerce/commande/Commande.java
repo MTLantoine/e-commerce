@@ -20,4 +20,8 @@ public class Commande {
         articles.put(articleId, quantity);
     }
 
+    public void resetMap() {
+        articles = new HashMap<Integer, Integer>();
+    }
+
 }
