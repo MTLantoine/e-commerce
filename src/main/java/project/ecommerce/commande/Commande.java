@@ -14,6 +14,7 @@ public class Commande {
     @Id
     private int id = 1;
     private HashMap<Integer, Integer> articles = new HashMap<Integer, Integer>();
+    private int totalPrice = 0;
 
     public void setMap(int articleId, int quantity) {
         articles.put(articleId, quantity);

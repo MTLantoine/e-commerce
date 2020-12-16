@@ -15,8 +15,4 @@ public class Client {
     private String firstname;
     private String lastname;
     private int money;
-
-    // @OneToMany
-    // @JoinColumn(name = "customer_id")
-    // private Set<Command>
 }
