@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -16,9 +17,10 @@ public class Reduction {
 
     @Id
     private int id;
+    private int percent;
+    private int numberOfUse = 2;
 
-    @OneToMany
-    @JoinColumn(name = "reduction_id")
-    private Set<Client> stock = new HashSet<Client>();;
+    @OneToOne
+    private Client client;
 
 }
