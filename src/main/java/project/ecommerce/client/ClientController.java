@@ -26,12 +26,12 @@ public class ClientController {
     public ResponseEntity<Client> clientBuyProduct(@PathVariable("clientId") int clientId) throws NoExistingCommandException, NotEnoughMoneyException {
         Client client = clientRepository.findById(clientId).get();
         Boolean isThereCommande = commandeRepository.findById(1).isPresent();
-        if (!isThereCommande) {
+        if (!isThereCommande || commandeRepository.findById(1).get().getArticles().isEmpty()) {
             throw new NoExistingCommandException("Aucune commande n'a encore été créée.");
         }
         Commande commande = commandeRepository.findById(1).get();
         int totalPrice = commande.getTotalPrice();
-        if (totalPrice >= client.getMoney()) {
+        if (client.getMoney() >= totalPrice) {
             client.setMoney(client.getMoney() - totalPrice);
             commande.setTotalPrice(0);
             commande.resetMap();
