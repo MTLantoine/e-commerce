@@ -1,5 +1,5 @@
 auth0:
-  audience: YOUR_API_IDENTIFIER
+  audience: https://e-commerce/api/v1
 spring:
   security:
     oauth2:
