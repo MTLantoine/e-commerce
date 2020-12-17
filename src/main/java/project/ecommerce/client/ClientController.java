@@ -9,6 +9,8 @@ import project.ecommerce.exception.NoExistingCommandException;
 import project.ecommerce.exception.NotEnoughMoneyException;
 import project.ecommerce.reduction.Reduction;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(path="/client")
 public class ClientController {
@@ -18,6 +20,11 @@ public class ClientController {
 
     @Autowired
     private CommandeRepository commandeRepository;
+
+    @GetMapping("find-by-lastname/{lastname}")
+    public Optional<Client> getClientByLastname(@PathVariable("lastname") String lastname) {
+        return clientRepository.findByLastname(lastname);
+    }
 
     @PostMapping("{clientId}/buy-command")
     public ResponseEntity<Client> clientBuyProduct(@PathVariable("clientId") int clientId) throws NoExistingCommandException, NotEnoughMoneyException {
