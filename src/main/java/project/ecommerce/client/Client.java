@@ -1,10 +1,9 @@
 package project.ecommerce.client;
 
 import lombok.Data;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import project.ecommerce.reduction.Reduction;
+
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -15,4 +14,8 @@ public class Client {
     private String firstname;
     private String lastname;
     private int money;
+
+    @OneToOne
+    @JoinColumn(name = "reduction_id")
+    private Reduction reduction;
 }

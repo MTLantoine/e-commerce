@@ -25,17 +25,17 @@ insert into ARTICLE (id, name, price, stock_id) values (6, 'Machine à laver', 8
 insert into STOCK (id, quantity, catalogue_id) values (7, 0, 1);
 insert into ARTICLE (id, name, price, stock_id) values (7, 'Empty', 500, 7);
 
--- Clients
-
-insert into CLIENT (id, firstname, lastname, money) values (1, 'Antoine', 'Mortelier', 1000);
-insert into CLIENT (id, firstname, lastname, money) values (2, 'Alexandre', 'Janaszek', 500);
-insert into CLIENT (id, firstname, lastname, money) values (3, 'Cathy', 'Houdart', 300);
-insert into CLIENT (id, firstname, lastname, money) values (4, 'Logan', 'Chenavier', 200);
-insert into CLIENT (id, firstname, lastname, money) values (5, 'Pierre', 'Mullier', 100);
-
 -- Reductions
 
 insert into REDUCTION (id, percent) values (1, 10);
 insert into REDUCTION (id, percent) values (2, 20);
 insert into REDUCTION (id, percent) values (3, 50);
 insert into REDUCTION (id, percent) values (4, 80);
+
+-- Clients
+
+insert into CLIENT (id, firstname, lastname, money, reduction_id) values (1, 'Antoine', 'Mortelier', 1000, 1);
+insert into CLIENT (id, firstname, lastname, money, reduction_id) values (2, 'Alexandre', 'Janaszek', 500, 2);
+insert into CLIENT (id, firstname, lastname, money, reduction_id) values (3, 'Cathy', 'Houdart', 300, 3);
+insert into CLIENT (id, firstname, lastname, money, reduction_id) values (4, 'Logan', 'Chenavier', 200, 4);
+insert into CLIENT (id, firstname, lastname, money) values (5, 'Pierre', 'Mullier', 100);
