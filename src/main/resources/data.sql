@@ -32,3 +32,10 @@ insert into CLIENT (id, firstname, lastname, money) values (2, 'Alexandre', 'Jan
 insert into CLIENT (id, firstname, lastname, money) values (3, 'Cathy', 'Houdart', 300);
 insert into CLIENT (id, firstname, lastname, money) values (4, 'Logan', 'Chenavier', 200);
 insert into CLIENT (id, firstname, lastname, money) values (5, 'Pierre', 'Mullier', 100);
+
+-- Reductions
+
+insert into REDUCTION (id, percent) values (1, 10);
+insert into REDUCTION (id, percent) values (2, 20);
+insert into REDUCTION (id, percent) values (3, 50);
+insert into REDUCTION (id, percent) values (4, 80);
