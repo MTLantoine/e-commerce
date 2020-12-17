@@ -12,7 +12,7 @@ public class Reduction {
     @Id
     private int id;
     private int percent;
-    private static int numberOfUse = 2;
+    private int numberOfUse = 2;
 
     @OneToOne
     private Client client;
