@@ -1,6 +1,13 @@
+# Project made by Antoine MORTELIER & Logan CHENAVIER
+
 # E-Commerce API
 
 This API was made on Spring for a school project.
+It is a simulation on a e-commerce, you can create an account, articles, make command and buy it.
+There is a few logical sequence to follow in the requests :
+
+- You can't access to the requests as long as you are not logged in (you can access to the catalog and the account creation anyway).
+- You can't buy a command if a command doesn't exist yet. Create a command first, buy it then.
 
 ## Insomnia
 
