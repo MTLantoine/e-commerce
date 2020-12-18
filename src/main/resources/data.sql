@@ -35,8 +35,8 @@ insert into REDUCTION (id, percent, number_of_use) values (5, 0, 2);
 
 -- Clients
 
-insert into CLIENT (id, firstname, lastname, money, reduction_id) values (1, 'antoine', 'mortelier', 1000, 1);
-insert into CLIENT (id, firstname, lastname, money, reduction_id) values (2, 'alexandre', 'janaszek', 500, 2);
-insert into CLIENT (id, firstname, lastname, money, reduction_id) values (3, 'cathy', 'houdart', 300, 3);
-insert into CLIENT (id, firstname, lastname, money, reduction_id) values (4, 'logan', 'chenavier', 200, 4);
-insert into CLIENT (id, firstname, lastname, money, reduction_id) values (5, 'pierre', 'mullier', 100, 5);
+insert into CLIENT (id, login, passwd, money, reduction_id) values (1, 'antoine', 'mortelier', 1000, 1);
+insert into CLIENT (id, login, passwd, money, reduction_id) values (2, 'alexandre', 'janaszek', 500, 2);
+insert into CLIENT (id, login, passwd, money, reduction_id) values (3, 'cathy', 'houdart', 300, 3);
+insert into CLIENT (id, login, passwd, money, reduction_id) values (4, 'logan', 'chenavier', 200, 4);
+insert into CLIENT (id, login, passwd, money, reduction_id) values (5, 'pierre', 'mullier', 100, 5);
