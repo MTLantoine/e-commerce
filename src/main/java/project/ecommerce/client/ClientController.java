@@ -21,7 +21,7 @@ public class ClientController {
     @Autowired
     private CommandeRepository commandeRepository;
 
-    @GetMapping("find-by-lastname/{login}")
+    @GetMapping("find-by-login/{login}")
     public Optional<Client> getClientByLogin(@PathVariable("login") String lastname) {
         return clientRepository.findByLogin(lastname);
     }
