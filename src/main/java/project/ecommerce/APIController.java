@@ -17,8 +17,6 @@ public class APIController {
     @Autowired
     private ClientRepository clientRepository;
 
-
-
     @PostMapping("/login")
     public String signIn(@RequestBody Client client) {
 
@@ -28,14 +26,31 @@ public class APIController {
         if (!clientTmp.getPasswd().equals(client.getPasswd())) {
             throw new RuntimeException("Password or Login are wrong");
         } else {
-            HttpResponse<String> response = Unirest.post("https://dev-dplo3lsd.eu.auth0.com/oauth/token")
-                    .header("content-type", "application/json")
-                    .body("{\"client_id\":\"EdQIXD7EWfItNKWsh5yzn16XNL927vme\"," +
-                            "\"client_secret\":\"HG0UDbjW8dYt3jRzdRSzbMjBXWKL69vzpUkuOC6dsKNxcN4HQgNKSuwqGY5uK4Ck\"," +
-                            "\"audience\":\"https://e-commerce/api/v1\"," +
-                            "\"grant_type\":\"client_credentials\"}")
-                    .asString();
-            return response.getBody().toString();
+            String access_token = "";
+            if (clientTmp.getRole().equals("admin")) {
+                HttpResponse<String> response = Unirest.post("https://dev-dplo3lsd.eu.auth0.com/oauth/token")
+                        .header("content-type", "application/json")
+                        .body("{\"client_id\":\"Mpg9y6794mbs0vYTn4PmJbCaafrii2FG\"," +
+                                "\"client_secret\":\"jn7rzEfOwkO9S5Qe5JJo7Sin8fWv0UV-nXoCHgy8k4IzIVzDiTKrLCeNPLoPnSgp\"," +
+                                "\"audience\":\"https://e-commerce/api/v1\"," +
+                                "\"grant_type\":\"client_credentials\"," +
+                                "\"scope\":\"read:admin create:admin update:admin delete:admin\"}")
+                        .asString();
+                access_token = response.getBody().toString();
+            } else if (clientTmp.getRole().equals("client")) {
+                HttpResponse<String> response = Unirest.post("https://dev-dplo3lsd.eu.auth0.com/oauth/token")
+                        .header("content-type", "application/json")
+                        .body("{\"client_id\":\"EdQIXD7EWfItNKWsh5yzn16XNL927vme\"," +
+                                "\"client_secret\":\"HG0UDbjW8dYt3jRzdRSzbMjBXWKL69vzpUkuOC6dsKNxcN4HQgNKSuwqGY5uK4Ck\"," +
+                                "\"audience\":\"https://e-commerce/api/v1\"," +
+                                "\"grant_type\":\"client_credentials\"," +
+                                "\"scope\":\"read:client\"}")
+                        .asString();
+                access_token = response.getBody().toString();
+            } else {
+                access_token = "false";
+            }
+            return access_token;
         }
     }
 }

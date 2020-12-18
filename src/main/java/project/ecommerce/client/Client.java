@@ -14,14 +14,8 @@ public class Client {
     private String login;
     private String passwd;
     private int money;
+    private String role;
 
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPasswd() {
-        return passwd;
-    }
     @OneToOne
     @JoinColumn(name = "reduction_id")
     private Reduction reduction;

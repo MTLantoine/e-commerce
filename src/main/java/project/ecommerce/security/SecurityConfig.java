@@ -2,6 +2,7 @@ package project.ecommerce.security;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -14,6 +15,7 @@ import org.springframework.security.oauth2.jwt.JwtValidators;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${auth0.audience}")
@@ -27,7 +29,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .mvcMatchers("/login").permitAll()
                 .mvcMatchers("/catalogue").permitAll()
+                .mvcMatchers("/catalogue/{*}").permitAll()
                 .mvcMatchers("/client").permitAll()
+                .mvcMatchers("/client/{*}").authenticated()
+                .mvcMatchers("/article").authenticated()
+                .mvcMatchers("/article/{*}").authenticated()
+                .mvcMatchers("/commande").authenticated()
+                .mvcMatchers("/commande/{*}").authenticated()
+                .mvcMatchers("/reduction").authenticated()
+                .mvcMatchers("/reduction/{*}").authenticated()
+                .mvcMatchers("/stock").authenticated()
+                .mvcMatchers("/stock/{*}").authenticated()
                 .and().cors()
                 .and().oauth2ResourceServer().jwt();
     }
