@@ -1,3 +1,7 @@
+debug: true
+server:
+  port: 8080
+
 auth0:
   audience: https://e-commerce/api/v1
 spring:

@@ -1,29 +1,25 @@
-// package project.ecommerce;
+package project.ecommerce;
 
-// import org.springframework.http.MediaType;
-// import org.springframework.web.bind.annotation.CrossOrigin;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RestController;
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-// @RestController
-// @RequestMapping(path = "api", produces = MediaType.APPLICATION_JSON_VALUE)
-// // For simplicity of this sample, allow all origins. Real applications should configure CORS for their use case.
-// @CrossOrigin(origins = "*")
-// public class APIController {
+@RestController
+@RequestMapping(path = "")
+public class APIController {
 
-//     @GetMapping(value = "/public")
-//     public Message publicEndpoint() {
-//         return new Message("All good. You DO NOT need to be authenticated to call /api/public.");
-//     }
-
-//     @GetMapping(value = "/private")
-//     public Message privateEndpoint() {
-//         return new Message("All good. You can see this because you are Authenticated.");
-//     }
-
-//     @GetMapping(value = "/private-scoped")
-//     public Message privateScopedEndpoint() {
-//         return new Message("All good. You can see this because you are Authenticated with a Token granted the 'read:messages' scope");
-//     }
-// }
+    @PostMapping("/login")
+    public String login() {
+        HttpResponse<String> response = Unirest
+                .post("https://dev-dplo3lsd.eu.auth0.com/oauth/token")
+                .header("content-type", "application/json")
+                .body("{\"client_id\":\"EdQIXD7EWfItNKWsh5yzn16XNL927vme\"," +
+                        "\"client_secret\":\"HG0UDbjW8dYt3jRzdRSzbMjBXWKL69vzpUkuOC6dsKNxcN4HQgNKSuwqGY5uK4Ck\"," +
+                        "\"audience\":\"https://e-commerce/api/v1\"," +
+                        "\"grant_type\":\"client_credentials\"}")
+                .asString();
+        return response.getBody().toString();
+    }
+}
