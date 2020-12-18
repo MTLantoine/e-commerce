@@ -4,7 +4,7 @@ This API was made on Spring for a school project.
 
 ## Insomnia
 
-All the test requests are in ./api/ecommerce.json, you can import it on Insomnia.
+All the test requests are in ./api/e-commerce.json, you can import it on Insomnia.
 
 ## Requests
 
