@@ -2,6 +2,8 @@ package project.ecommerce;
 
 import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +36,7 @@ public class APIController {
                                 "\"client_secret\":\"jn7rzEfOwkO9S5Qe5JJo7Sin8fWv0UV-nXoCHgy8k4IzIVzDiTKrLCeNPLoPnSgp\"," +
                                 "\"audience\":\"https://e-commerce/api/v1\"," +
                                 "\"grant_type\":\"client_credentials\"," +
-                                "\"scope\":\"read:admin create:admin update:admin delete:admin\"}")
+                                "\"scope\":\"admin client\"}")
                         .asString();
                 access_token = response.getBody().toString();
             } else if (clientTmp.getRole().equals("client")) {
@@ -44,7 +46,7 @@ public class APIController {
                                 "\"client_secret\":\"HG0UDbjW8dYt3jRzdRSzbMjBXWKL69vzpUkuOC6dsKNxcN4HQgNKSuwqGY5uK4Ck\"," +
                                 "\"audience\":\"https://e-commerce/api/v1\"," +
                                 "\"grant_type\":\"client_credentials\"," +
-                                "\"scope\":\"read:client\"}")
+                                "\"scope\":\"client\"}")
                         .asString();
                 access_token = response.getBody().toString();
             } else {

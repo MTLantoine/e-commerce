@@ -17,7 +17,6 @@ public class ArticleController {
     private ArticleRepository articleRepository;
 
     @GetMapping("find-by-name/{name}")
-    @PostAuthorize("hasAuthority('SCOPE_' + returnObject.get().getRole())")
     public Optional<Article> getArticleByName(@PathVariable("name") String name) {
         return articleRepository.findByName(name);
     }

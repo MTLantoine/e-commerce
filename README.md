@@ -9,6 +9,8 @@ There is a few logical sequence to follow in the requests :
 - You can't access to the requests as long as you are not logged in (you can access to the catalog and the account creation anyway).
 - You can't buy a command if a command doesn't exist yet. Create a command first, buy it then.
 
+The Auth0 security doesn't work yet, I couldn't make the link between the access token and the API.
+
 ## Insomnia
 
 All the test requests are in ./api/e-commerce.json, you can import it on Insomnia.
