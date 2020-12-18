@@ -11,10 +11,17 @@ public class Client {
 
     @Id
     private int id;
-    private String firstname;
-    private String lastname;
+    private String login;
+    private String passwd;
     private int money;
 
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPasswd() {
+        return passwd;
+    }
     @OneToOne
     @JoinColumn(name = "reduction_id")
     private Reduction reduction;

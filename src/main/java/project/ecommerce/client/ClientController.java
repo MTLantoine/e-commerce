@@ -21,9 +21,9 @@ public class ClientController {
     @Autowired
     private CommandeRepository commandeRepository;
 
-    @GetMapping("find-by-lastname/{lastname}")
-    public Optional<Client> getClientByLastname(@PathVariable("lastname") String lastname) {
-        return clientRepository.findByLastname(lastname);
+    @GetMapping("find-by-lastname/{login}")
+    public Optional<Client> getClientByLogin(@PathVariable("login") String lastname) {
+        return clientRepository.findByLogin(lastname);
     }
 
     @PostMapping("{clientId}/buy-command")
