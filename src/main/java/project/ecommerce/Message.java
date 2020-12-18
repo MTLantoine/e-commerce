@@ -1,13 +1,13 @@
-package project.ecommerce;
+// package project.ecommerce;
 
-import lombok.Data;
+// import lombok.Data;
 
-@Data
-public class Message {
+// @Data
+// public class Message {
 
-    private final String message;
+//     private final String message;
 
-    public Message(String message) {
-        this.message = message;
-    }
-}
+//     public Message(String message) {
+//         this.message = message;
+//     }
+// }
